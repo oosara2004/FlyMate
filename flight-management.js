@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initializeFlights();
     });
 
-    // Enhanced flight data with more creative statuses and history
+    // Enhanced flight data with more creative statuses and comprehensive history
     const flightData = [
         {
             id: 'EF001',
@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
             date: '2025-01-15',
             duration: '2h 15m',
             experience: 'smooth',
-            rating: 5
+            rating: 5,
+            statusText: 'Flight Completed Successfully'
         },
         {
             id: 'EF002',
@@ -53,7 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
             date: '2025-01-20',
             duration: '3h 15m',
             experience: 'boarding-now',
-            boardingGroup: 'Group A'
+            boardingGroup: 'Group A',
+            statusText: 'Boarding Now - Gate B7'
         },
         {
             id: 'EF003',
@@ -75,7 +77,8 @@ document.addEventListener('DOMContentLoaded', function() {
             date: '2025-01-17',
             duration: '2h 30m',
             experience: 'cancelled',
-            reason: 'Weather conditions'
+            reason: 'Weather conditions',
+            statusText: 'Flight Cancelled - Weather'
         },
         {
             id: 'EF004',
@@ -97,7 +100,8 @@ document.addEventListener('DOMContentLoaded', function() {
             date: '2025-01-14',
             duration: '1h 30m',
             experience: 'missed',
-            reason: 'Late arrival at airport'
+            reason: 'Late arrival at airport',
+            statusText: 'Flight Missed - Late Arrival'
         },
         {
             id: 'EF005',
@@ -120,7 +124,8 @@ document.addEventListener('DOMContentLoaded', function() {
             duration: '7h 15m',
             experience: 'delayed',
             delayTime: '45 minutes',
-            reason: 'Air traffic control'
+            reason: 'Air traffic control',
+            statusText: 'Delayed 45 mins - ATC'
         },
         {
             id: 'EF006',
@@ -142,7 +147,8 @@ document.addEventListener('DOMContentLoaded', function() {
             date: '2025-01-25',
             duration: '6h 50m',
             experience: 'upcoming',
-            checkInAvailable: true
+            checkInAvailable: true,
+            statusText: 'Scheduled - Check-in Available'
         },
         {
             id: 'EF007',
@@ -165,7 +171,8 @@ document.addEventListener('DOMContentLoaded', function() {
             duration: '4h 30m',
             experience: 'excellent',
             rating: 5,
-            review: 'Perfect flight with great service!'
+            review: 'Perfect flight with great service!',
+            statusText: 'Journey Completed - Excellent'
         },
         {
             id: 'EF008',
@@ -188,7 +195,104 @@ document.addEventListener('DOMContentLoaded', function() {
             duration: '10h 30m',
             experience: 'good',
             rating: 4,
-            review: 'Long flight but comfortable seats'
+            review: 'Long flight but comfortable seats',
+            statusText: 'Trip Completed - Good Experience'
+        },
+        {
+            id: 'EF009',
+            flightNumber: 'BA 2020',
+            airline: 'British Airways',
+            status: 'in-progress',
+            departure: {
+                code: 'LHR',
+                name: 'London Heathrow',
+                time: '16:30'
+            },
+            arrival: {
+                code: 'JFK',
+                name: 'John F. Kennedy International',
+                time: '19:45'
+            },
+            gate: 'T5-A12',
+            seat: '14A',
+            date: '2025-01-18',
+            duration: '8h 15m',
+            experience: 'flying',
+            currentLocation: 'Over Atlantic Ocean',
+            estimatedArrival: '19:45',
+            statusText: 'Currently Flying - On Time'
+        },
+        {
+            id: 'EF010',
+            flightNumber: 'AF 1234',
+            airline: 'Air France',
+            status: 'rescheduled',
+            departure: {
+                code: 'CDG',
+                name: 'Charles de Gaulle',
+                time: '14:20'
+            },
+            arrival: {
+                code: 'DXB',
+                name: 'Dubai International',
+                time: '23:30'
+            },
+            gate: '2F-G8',
+            seat: '18C',
+            date: '2025-01-23',
+            duration: '7h 10m',
+            experience: 'rescheduled',
+            originalTime: '12:00',
+            newTime: '14:20',
+            reason: 'Aircraft maintenance',
+            statusText: 'Rescheduled - New Time 14:20'
+        },
+        {
+            id: 'EF011',
+            flightNumber: 'LH 9999',
+            airline: 'Lufthansa',
+            status: 'check-in',
+            departure: {
+                code: 'FRA',
+                name: 'Frankfurt Airport',
+                time: '10:45'
+            },
+            arrival: {
+                code: 'RUH',
+                name: 'King Khalid International',
+                time: '18:30'
+            },
+            gate: 'A15',
+            seat: '21F',
+            date: '2025-01-26',
+            duration: '5h 45m',
+            experience: 'ready-checkin',
+            checkInOpens: '2025-01-25 10:45',
+            statusText: 'Ready for Check-in'
+        },
+        {
+            id: 'EF012',
+            flightNumber: 'KL 5678',
+            airline: 'KLM',
+            status: 'diverted',
+            departure: {
+                code: 'AMS',
+                name: 'Amsterdam Schiphol',
+                time: '13:15'
+            },
+            arrival: {
+                code: 'DXB',
+                name: 'Dubai International',
+                time: '22:00'
+            },
+            gate: 'D7',
+            seat: '16B',
+            date: '2025-01-12',
+            duration: '6h 45m',
+            experience: 'diverted',
+            divertedTo: 'Munich Airport (MUC)',
+            reason: 'Technical issue',
+            statusText: 'Diverted to Munich - Technical'
         }
     ];
 
@@ -196,6 +300,7 @@ document.addEventListener('DOMContentLoaded', function() {
         displayFlights();
         setupLogout();
         addFlightStats();
+        addFlightFilters();
     }
 
     function displayFlights() {
@@ -221,8 +326,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         card.innerHTML = `
             <div class="flight-header">
-                <div class="flight-number">${flight.flightNumber}</div>
-                <div class="airline-name">${flight.airline}</div>
+                <div class="flight-info">
+                    <div class="flight-number">${flight.flightNumber}</div>
+                    <div class="airline-name">${flight.airline}</div>
+                </div>
                 <div class="flight-status status-${flight.status}">
                     ${statusInfo.icon} ${statusInfo.text}
                 </div>
@@ -236,6 +343,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <div class="route-line">
                         <i class="fas fa-plane plane-icon"></i>
+                        <div class="flight-duration">${flight.duration}</div>
                     </div>
                     <div class="airport">
                         <div class="airport-code">${flight.arrival.code}</div>
@@ -249,10 +357,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="detail-value">${formatDate(flight.date)}</div>
                     </div>
                     <div class="detail-item">
-                        <div class="detail-label">Duration</div>
-                        <div class="detail-value">${flight.duration}</div>
-                    </div>
-                    <div class="detail-item">
                         <div class="detail-label">Gate</div>
                         <div class="detail-value">${flight.gate}</div>
                     </div>
@@ -260,8 +364,18 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="detail-label">Seat</div>
                         <div class="detail-value">${flight.seat}</div>
                     </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Status</div>
+                        <div class="detail-value status-text">${flight.statusText}</div>
+                    </div>
                 </div>
                 ${createExperienceSection(flight)}
+            </div>
+            <div class="flight-actions">
+                <button class="action-btn primary" onclick="event.stopPropagation(); openFlightTicket(flight)">
+                    <i class="fas fa-ticket-alt"></i> View Boarding Pass
+                </button>
+                ${getActionButtons(flight)}
             </div>
         `;
 
@@ -271,11 +385,15 @@ document.addEventListener('DOMContentLoaded', function() {
     function getStatusInfo(flight) {
         const statusMap = {
             'completed': { text: 'Completed', icon: '✅' },
-            'boarding': { text: 'Boarding Now', icon: '🚪' },
+            'boarding': { text: 'Boarding', icon: '🚪' },
             'delayed': { text: 'Delayed', icon: '⏰' },
             'cancelled': { text: 'Cancelled', icon: '❌' },
             'missed': { text: 'Missed', icon: '😞' },
-            'scheduled': { text: 'Scheduled', icon: '📅' }
+            'scheduled': { text: 'Scheduled', icon: '📅' },
+            'in-progress': { text: 'In Flight', icon: '✈️' },
+            'rescheduled': { text: 'Rescheduled', icon: '🔄' },
+            'check-in': { text: 'Check-in', icon: '📋' },
+            'diverted': { text: 'Diverted', icon: '↗️' }
         };
         return statusMap[flight.status] || { text: flight.status, icon: '✈️' };
     }
@@ -291,7 +409,11 @@ document.addEventListener('DOMContentLoaded', function() {
             'missed': '😞',
             'delayed': '⏰',
             'boarding-now': '🚪',
-            'upcoming': '🔜'
+            'upcoming': '🔜',
+            'flying': '✈️',
+            'rescheduled': '🔄',
+            'ready-checkin': '📋',
+            'diverted': '↗️'
         };
         return experienceMap[experience] || '✈️';
     }
@@ -358,10 +480,78 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 `;
                 break;
+
+            case 'in-progress':
+                experienceHTML += `
+                    <div class="progress-info">
+                        <span class="current-location">📍 ${flight.currentLocation}</span>
+                        <span class="estimated-arrival">🕐 ETA: ${flight.estimatedArrival}</span>
+                    </div>
+                `;
+                break;
+
+            case 'rescheduled':
+                experienceHTML += `
+                    <div class="reschedule-info">
+                        <span class="time-change">🔄 ${flight.originalTime} → ${flight.newTime}</span>
+                        <span class="reschedule-reason">Reason: ${flight.reason}</span>
+                    </div>
+                `;
+                break;
+
+            case 'check-in':
+                experienceHTML += `
+                    <div class="checkin-info">
+                        <span class="checkin-available">📋 Check-in now available</span>
+                        <span class="checkin-reminder">⏰ Opens: ${formatDateTime(flight.checkInOpens)}</span>
+                    </div>
+                `;
+                break;
+
+            case 'diverted':
+                experienceHTML += `
+                    <div class="divert-info">
+                        <span class="diverted-to">↗️ Diverted to ${flight.divertedTo}</span>
+                        <span class="divert-reason">Reason: ${flight.reason}</span>
+                    </div>
+                `;
+                break;
         }
         
         experienceHTML += '</div>';
         return experienceHTML;
+    }
+
+    function getActionButtons(flight) {
+        let buttons = '';
+        
+        switch(flight.status) {
+            case 'scheduled':
+            case 'check-in':
+                buttons += `
+                    <button class="action-btn secondary" onclick="event.stopPropagation(); checkInFlight('${flight.id}')">
+                        <i class="fas fa-check-circle"></i> Check In
+                    </button>
+                `;
+                break;
+            case 'cancelled':
+            case 'missed':
+                buttons += `
+                    <button class="action-btn warning" onclick="event.stopPropagation(); rebookFlight('${flight.id}')">
+                        <i class="fas fa-redo"></i> Rebook
+                    </button>
+                `;
+                break;
+            case 'in-progress':
+                buttons += `
+                    <button class="action-btn info" onclick="event.stopPropagation(); trackFlight('${flight.id}')">
+                        <i class="fas fa-map-marker-alt"></i> Track Live
+                    </button>
+                `;
+                break;
+        }
+        
+        return buttons;
     }
 
     function formatDate(dateString) {
@@ -391,6 +581,16 @@ document.addEventListener('DOMContentLoaded', function() {
         return dateText;
     }
 
+    function formatDateTime(dateTimeString) {
+        const date = new Date(dateTimeString);
+        return date.toLocaleString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+    }
+
     function addFlightStats() {
         const header = document.querySelector('.flights-header');
         const statsDiv = document.createElement('div');
@@ -398,8 +598,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const totalFlights = flightData.length;
         const completedFlights = flightData.filter(f => f.status === 'completed').length;
-        const upcomingFlights = flightData.filter(f => f.status === 'scheduled' || f.status === 'boarding').length;
-        const cancelledFlights = flightData.filter(f => f.status === 'cancelled' || f.status === 'missed').length;
+        const upcomingFlights = flightData.filter(f => ['scheduled', 'boarding', 'check-in'].includes(f.status)).length;
+        const activeFlights = flightData.filter(f => f.status === 'in-progress').length;
+        const issueFlights = flightData.filter(f => ['cancelled', 'missed', 'delayed', 'diverted'].includes(f.status)).length;
         
         statsDiv.innerHTML = `
             <div class="stats-container">
@@ -416,7 +617,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="stat-label">Upcoming</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">${cancelledFlights}</div>
+                    <div class="stat-number">${activeFlights}</div>
+                    <div class="stat-label">In Flight</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">${issueFlights}</div>
                     <div class="stat-label">Issues</div>
                 </div>
             </div>
@@ -425,12 +630,66 @@ document.addEventListener('DOMContentLoaded', function() {
         header.appendChild(statsDiv);
     }
 
+    function addFlightFilters() {
+        const header = document.querySelector('.flights-header');
+        const filtersDiv = document.createElement('div');
+        filtersDiv.className = 'flight-filters';
+        
+        filtersDiv.innerHTML = `
+            <div class="filters-container">
+                <button class="filter-btn active" data-filter="all">All Flights</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+                <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+                <button class="filter-btn" data-filter="in-progress">In Flight</button>
+                <button class="filter-btn" data-filter="issues">Issues</button>
+            </div>
+        `;
+        
+        header.appendChild(filtersDiv);
+        
+        // Add filter functionality
+        const filterButtons = filtersDiv.querySelectorAll('.filter-btn');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                filterFlights(btn.dataset.filter);
+            });
+        });
+    }
+
+    function filterFlights(filter) {
+        const flightCards = document.querySelectorAll('.flight-card');
+        
+        flightCards.forEach(card => {
+            const shouldShow = filter === 'all' || 
+                              (filter === 'upcoming' && ['scheduled', 'boarding', 'check-in'].some(status => card.classList.contains(status))) ||
+                              (filter === 'issues' && ['cancelled', 'missed', 'delayed', 'diverted'].some(status => card.classList.contains(status))) ||
+                              card.classList.contains(filter);
+            
+            card.style.display = shouldShow ? 'block' : 'none';
+        });
+    }
+
     function openFlightTicket(flight) {
         // Store flight data in localStorage for the ticket page
         localStorage.setItem('selectedFlight', JSON.stringify(flight));
         // Open ticket page
         window.open('boarding-pass.html', '_blank');
     }
+
+    // Action button functions
+    window.checkInFlight = function(flightId) {
+        alert(`Check-in process started for flight ${flightId}`);
+    };
+
+    window.rebookFlight = function(flightId) {
+        alert(`Rebooking options for flight ${flightId}`);
+    };
+
+    window.trackFlight = function(flightId) {
+        alert(`Live tracking for flight ${flightId}`);
+    };
 
     function setupLogout() {
         const logoutBtn = document.getElementById('logout-btn');
