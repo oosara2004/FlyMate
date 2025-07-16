@@ -43,21 +43,59 @@
         </div>
     </nav>
 
-    <!-- Main Content Container -->
-    <div class="main-content">
-        <!-- Flights Content -->
-        <div class="flights-container">
-            <div class="flights-header">
-                <h1>My Flights</h1>
-                <p>Manage your flight bookings and boarding passes</p>
-            </div>
-
-            <!-- Flights Grid -->
-            <div class="flights-grid" id="flights-grid">
-                <!-- Flight cards will be dynamically generated here -->
-            </div>
+   <!-- Main Content Container -->
+<div class="main-content">
+    <!-- Flights Content -->
+    <div class="flights-container">
+        <div class="flights-header">
+            <h1>My Flights</h1>
+            <p>Manage your flight bookings and boarding passes</p>
         </div>
+
+        <!-- Flights Table -->
+        <table class="flights-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Flight Number</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+    <tr>
+        <td>Jan 15, 2025</td>
+        <td>King Khalid International (RUH)</td>
+        <td>King Abdulaziz International (JED)</td>
+        <td>SV 1234</td>
+        <td><span class="status completed">Completed</span></td>
+    </tr>
+    <tr>
+        <td>Jan 16, 2025</td>
+        <td>King Abdulaziz International (JED)</td>
+        <td>Dubai International (DXB)</td>
+        <td>XY 5678</td>
+        <td><span class="status in-progress">In Progress</span></td>
+    </tr>
+    <tr>
+        <td>Jan 17, 2025</td>
+        <td>King Khalid International (RUH)</td>
+        <td>Cairo International (CAI)</td>
+        <td>SV 9876</td>
+        <td><span class="status cancelled">Cancelled</span></td>
+    </tr>
+    <tr>
+        <td>Jan 14, 2025</td>
+        <td>King Fahd International (DMM)</td>
+        <td>Kuwait International (KWI)</td>
+        <td>XY 2468</td>
+        <td><span class="status missed">Missed</span></td>
+    </tr>
+</tbody>
+        </table>
     </div>
+</div>
 
     <!-- Footer Section -->
     <div class="footer__container">
