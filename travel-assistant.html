@@ -543,16 +543,10 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Accept': 'application/json',
                     },
                     body: JSON.stringify({ message: userMessage })
                 })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
+                .then(response => response.json())
                 .then(data => {
                     hideTypingIndicator();
                     
@@ -574,7 +568,7 @@
                     console.error('Error:', error);
                     hideTypingIndicator();
                     
-                    // Show error message
+                    // Show fallback message without mentioning Python
                     const errorMessageElement = document.createElement('div');
                     errorMessageElement.classList.add('message', 'bot');
                     errorMessageElement.innerHTML = `
@@ -582,7 +576,7 @@
                             <i class="fas fa-robot"></i>
                         </div>
                         <div class="message-content">
-                            I'm sorry, I'm having trouble connecting right now. Please make sure the Python API server is running on http://127.0.0.1:5000, or contact our travel support team if the issue persists.
+                            I'm sorry, I'm having trouble connecting right now. Please try again in a moment, or contact our travel support team for immediate assistance.
                         </div>
                     `;
                     chatBox.appendChild(errorMessageElement);

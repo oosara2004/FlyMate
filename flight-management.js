@@ -305,6 +305,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function displayFlights() {
         const flightsGrid = document.getElementById('flights-grid');
+        if (!flightsGrid) {
+            console.error('Flights grid element not found');
+            return;
+        }
+        
         flightsGrid.innerHTML = '';
 
         // Sort flights by date (newest first)
@@ -593,6 +598,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function addFlightStats() {
         const header = document.querySelector('.flights-header');
+        if (!header) return;
+        
         const statsDiv = document.createElement('div');
         statsDiv.className = 'flight-stats';
         
@@ -632,6 +639,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function addFlightFilters() {
         const header = document.querySelector('.flights-header');
+        if (!header) return;
+        
         const filtersDiv = document.createElement('div');
         filtersDiv.className = 'flight-filters';
         
