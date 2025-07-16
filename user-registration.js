@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             alert('Account created successfully!');
-            window.location.href = "SignHome.html";
+            window.location.href = "home-dashboard.html";
             
         } catch (error) {
             console.error("Signup error:", error);
