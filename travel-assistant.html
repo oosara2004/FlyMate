@@ -84,7 +84,7 @@
         }
         
         .navbar__links:hover {
-            color: #2E7D32;
+            color: #0c1752;
             transition: all 0.3s ease;
         }
 
@@ -111,7 +111,7 @@
         }
 
         .chatbot-header {
-            background: linear-gradient(135deg, #2E7D32 0%, #81C784 100%);
+            background: linear-gradient(135deg, #0c1752 0%, #59b1e4 100%);
             color: white;
             padding: 1.5rem;
             display: flex;
@@ -140,7 +140,7 @@
         .status-dot {
             width: 8px;
             height: 8px;
-            background: #4CAF50;
+            background: #59b1e4;
             border-radius: 50%;
             animation: pulse 2s infinite;
         }
@@ -171,7 +171,7 @@
         }
 
         .chatbot-body::-webkit-scrollbar-thumb {
-            background: #2E7D32;
+            background: #0c1752;
             border-radius: 3px;
         }
 
@@ -206,10 +206,11 @@
             border-radius: 20px;
             position: relative;
             word-wrap: break-word;
+            white-space: pre-wrap;
         }
 
         .message.user .message-content {
-            background: linear-gradient(135deg, #2E7D32 0%, #81C784 100%);
+            background: linear-gradient(135deg, #0c1752 0%, #59b1e4 100%);
             color: white;
             border-bottom-right-radius: 5px;
         }
@@ -240,7 +241,7 @@
         }
 
         .message.bot .message-avatar {
-            background: #2E7D32;
+            background: #0c1752;
             color: white;
         }
 
@@ -301,12 +302,12 @@
         }
 
         .chatbot-input input:focus {
-            border-color: #2E7D32;
-            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+            border-color: #0c1752;
+            box-shadow: 0 0 0 3px rgba(12, 23, 82, 0.1);
         }
 
         .chatbot-input button {
-            background: linear-gradient(135deg, #2E7D32 0%, #81C784 100%);
+            background: linear-gradient(135deg, #0c1752 0%, #59b1e4 100%);
             color: white;
             border: none;
             padding: 1rem 1.5rem;
@@ -318,12 +319,12 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            box-shadow: 0 4px 15px rgba(12, 23, 82, 0.3);
         }
 
         .chatbot-input button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+            box-shadow: 0 6px 20px rgba(12, 23, 82, 0.4);
         }
 
         .chatbot-input button:disabled {
@@ -341,8 +342,8 @@
 
         .quick-action {
             background: white;
-            border: 2px solid #2E7D32;
-            color: #2E7D32;
+            border: 2px solid #0c1752;
+            color: #0c1752;
             padding: 0.5rem 1rem;
             border-radius: 20px;
             cursor: pointer;
@@ -351,7 +352,7 @@
         }
 
         .quick-action:hover {
-            background: #2E7D32;
+            background: #0c1752;
             color: white;
         }
 
@@ -363,7 +364,7 @@
         }
 
         .welcome-message h3 {
-            color: #2E7D32;
+            color: #0c1752;
             margin-bottom: 1rem;
         }
 
@@ -418,26 +419,29 @@
     <nav class="navbar">
         <div class="navbar__container">
             <a href="/" id="navbar__logo">
-                <img src="img/fly.png" alt="EasyFly Logo" class="navbar__logo-image" />
+                <img src="img/fly.png" alt="FlyMate Logo" class="navbar__logo-image" />
             </a>    
             <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="SignHome.html" class="navbar__links">Home</a>
+                    <a href="home-dashboard.html" class="navbar__links">Home</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="DashBoard.html" class="navbar__links">Luggage</a>
+                    <a href="luggage-tracking.html" class="navbar__links">Luggage</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="Scanner.html" class="navbar__links">Flights</a>
+                    <a href="flight-management.html" class="navbar__links">Flights</a>
                 </li>
                 <li class="navbar__item">
                     <a href="Notifications.html" class="navbar__links">Notifications</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="Account.html" class="navbar__links">Account</a>
+                    <a href="user-profile.html" class="navbar__links">Account</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="Settings.html" class="navbar__links">Settings</a>
+                    <a href="travel-settings.html" class="navbar__links">Settings</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" id="logout-btn" class="navbar__links">Logout</a>
                 </li>
             </ul>
         </div>
@@ -447,7 +451,7 @@
     <div class="chatbot-page">
         <div class="chatbot-container">
             <div class="chatbot-header">
-                <i class="fas fa-robot"></i>
+                <img src="img/fly.png" alt="FlyMate" style="width: 30px; height: 30px; filter: brightness(0) invert(1);">
                 <h2>FlyMate Assistant</h2>
                 <div class="chatbot-status">
                     <div class="status-dot"></div>
@@ -457,7 +461,7 @@
             
             <div class="chatbot-body" id="chatbot-body">
                 <div class="welcome-message">
-                    <h3>Welcome to FlyMate Assistant! 🤖</h3>
+                    <h3>Welcome to FlyMate Assistant! ✈️</h3>
                     <p>I'm here to help you with flight information, baggage tracking, and travel support. How can I assist you today?</p>
                 </div>
                 
@@ -534,7 +538,7 @@
                 // Show typing indicator
                 showTypingIndicator();
         
-                // Send message to backend
+                // Send message to Python backend
                 fetch('http://127.0.0.1:5000/chatbot', {
                     method: 'POST',
                     headers: {
@@ -578,7 +582,7 @@
                             <i class="fas fa-robot"></i>
                         </div>
                         <div class="message-content">
-                            I'm sorry, I'm having trouble connecting right now. Please try again in a moment, or contact our travel support team if the issue persists.
+                            I'm sorry, I'm having trouble connecting right now. Please make sure the Python API server is running on http://127.0.0.1:5000, or contact our travel support team if the issue persists.
                         </div>
                     `;
                     chatBox.appendChild(errorMessageElement);
