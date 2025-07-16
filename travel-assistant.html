@@ -419,29 +419,26 @@
     <nav class="navbar">
         <div class="navbar__container">
             <a href="/" id="navbar__logo">
-                <img src="img/fly.png" alt="FlyMate Logo" class="navbar__logo-image" />
+                <img src="img/fly.png" alt="EasyFly Logo" class="navbar__logo-image" />
             </a>    
             <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="home-dashboard.html" class="navbar__links">Home</a>
+                    <a href="SignHome.html" class="navbar__links">Home</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="luggage-tracking.html" class="navbar__links">Luggage</a>
+                    <a href="DashBoard.html" class="navbar__links">Luggage</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="flight-management.html" class="navbar__links">Flights</a>
+                    <a href="Scanner.html" class="navbar__links">Flights</a>
                 </li>
                 <li class="navbar__item">
                     <a href="Notifications.html" class="navbar__links">Notifications</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="user-profile.html" class="navbar__links">Account</a>
+                    <a href="Account.html" class="navbar__links">Account</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="travel-settings.html" class="navbar__links">Settings</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="#" id="logout-btn" class="navbar__links">Logout</a>
+                    <a href="Settings.html" class="navbar__links">Settings</a>
                 </li>
             </ul>
         </div>
@@ -451,7 +448,7 @@
     <div class="chatbot-page">
         <div class="chatbot-container">
             <div class="chatbot-header">
-                <img src="img/fly.png" alt="FlyMate" style="width: 30px; height: 30px; filter: brightness(0) invert(1);">
+                <i class="fas fa-robot"></i>
                 <h2>FlyMate Assistant</h2>
                 <div class="chatbot-status">
                     <div class="status-dot"></div>
@@ -461,7 +458,7 @@
             
             <div class="chatbot-body" id="chatbot-body">
                 <div class="welcome-message">
-                    <h3>Welcome to FlyMate Assistant! ✈️</h3>
+                    <h3>Welcome to FlyMate Assistant! 🤖</h3>
                     <p>I'm here to help you with flight information, baggage tracking, and travel support. How can I assist you today?</p>
                 </div>
                 
@@ -538,15 +535,21 @@
                 // Show typing indicator
                 showTypingIndicator();
         
-                // Send message to Python backend
-                fetch('http://127.0.0.1:5000/chatbot', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ message: userMessage })
+                // Send message to backend
+               fetch('http://127.0.0.1:5000/chatbot', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+    },
+    body: JSON.stringify({ message: userMessage })
+})
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
                 })
-                .then(response => response.json())
                 .then(data => {
                     hideTypingIndicator();
                     
@@ -568,7 +571,7 @@
                     console.error('Error:', error);
                     hideTypingIndicator();
                     
-                    // Show fallback message without mentioning Python
+                    // Show error message
                     const errorMessageElement = document.createElement('div');
                     errorMessageElement.classList.add('message', 'bot');
                     errorMessageElement.innerHTML = `
@@ -576,7 +579,7 @@
                             <i class="fas fa-robot"></i>
                         </div>
                         <div class="message-content">
-                            I'm sorry, I'm having trouble connecting right now. Please try again in a moment, or contact our travel support team for immediate assistance.
+                            I'm sorry, I'm having trouble connecting right now. Please try again in a moment, or contact our travel support team if the issue persists.
                         </div>
                     `;
                     chatBox.appendChild(errorMessageElement);
