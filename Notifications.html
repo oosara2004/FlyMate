@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - FlyMate</title>
+    <link rel="stylesheet" href="travel-notifications.css">
+    <script src="https://kit.fontawesome.com/d510b38842.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+   <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="/" id="navbar__logo">
+                <img src="img/fly.png" alt="EasyFly Logo" class="navbar__logo-image" />
+            </a>    
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="home-dashboard.html" class="navbar__links active">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="luggage-tracking.html" class="navbar__links">Luggage</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="flight-management.html" class="navbar__links">Flights</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="Notifications.html" class="navbar__links">Notifications</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="user-profile.html" class="navbar__links">Account</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="travel-settings.html" class="navbar__links">Settings</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" id="logout-btn" class="navbar__links">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="main-content">
+        <!-- Notifications Content -->
+        <div class="notifications-container">
+            <div class="notifications-header">
+                <h1>Notifications</h1>
+                <p>Stay updated with real-time travel alerts and updates</p>
+                <div class="header-actions">
+                    <button class="mark-all-read" id="mark-all-read">
+                        <i class="fas fa-check-double"></i>
+                        Mark All Read
+                    </button>
+                    <button class="clear-all" id="clear-all">
+                        <i class="fas fa-trash"></i>
+                        Clear All
+                    </button>
+                </div>
+            </div>
+
+            <!-- Notification Filters -->
+            <div class="notification-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="flights">Flights</button>
+                <button class="filter-btn" data-filter="luggage">Luggage</button>
+                <button class="filter-btn" data-filter="general">General</button>
+                <button class="filter-btn" data-filter="unread">Unread</button>
+            </div>
+
+            <!-- Notifications List -->
+            <div class="notifications-list" id="notifications-list">
+                <!-- Notifications will be dynamically generated here -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="empty-state" style="display: none;">
+                <div class="empty-icon">
+                    <i class="fas fa-bell-slash"></i>
+                </div>
+                <h3>No notifications</h3>
+                <p>You're all caught up! Check back later for updates.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer__container">
+        <div class="footer__links">
+            <div class="footer__link--wrapper">
+                <div class="footer__link--items">
+                    <h2>Help</h2>
+                    <a href="/">Contact Us</a>
+                    <a href="ChatBot.html">Chat Bot</a>
+                    <a href="/">Terms Of Service</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__logo">
+            <a href="/" id="navbar__logo">
+                <img src="img/fly.png" alt="EasyFly Logo" class="navbar__logo-image" />
+            </a>  
+        </div>
+        <p class="website__rights">FlyMate 2025. All rights reserved</p>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="auth.js"></script>
+    <script src="Notifications.js"></script>
+</body>
+</html>

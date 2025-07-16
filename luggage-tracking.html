@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - FlyMate</title>
+    <link rel="stylesheet" href="luggage-tracking.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="/" id="navbar__logo">
+                <img src="img/fly.png" alt="EasyFly Logo" class="navbar__logo-image" />
+            </a>    
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="home-dashboard.html" class="navbar__links active">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="luggage-tracking.html" class="navbar__links">Luggage</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="flight-management.html" class="navbar__links">Flights</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="Notifications.html" class="navbar__links">Notifications</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="user-profile.html" class="navbar__links">Account</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="travel-settings.html" class="navbar__links">Settings</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" id="logout-btn" class="navbar__links">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="main-content">
+        <!-- Dashboard Content -->
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h1>Baggage Tracking</h1>
+                <p>Monitor your luggage location and pickup status</p>
+            </div>
+
+            <!-- Luggage Table -->
+            <div class="luggage-section">
+                <div class="table-container">
+                    <table class="luggage-table" id="luggage-table">
+                        <thead>
+                            <tr>
+                                <th>Baggage Number</th>
+                                <th>Flight</th>
+                                <th>Current Location</th>
+                                <th>Status</th>
+                                <th>Pickup Area</th>
+                                <th>Last Updated</th>
+                            </tr>
+                        </thead>
+                        <tbody id="luggage-tbody">
+                            <!-- Luggage data will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Luggage Summary -->
+            <div class="summary-section">
+                <h2>Luggage Summary</h2>
+                <div class="summary-cards">
+                    <div class="summary-card green">
+                        <div class="summary-icon"><i class="fas fa-check"></i></div>
+                        <div class="summary-content">
+                            <h4>Bags Arrived</h4>
+                            <p id="arrived-count">2 of 3 bags ready for pickup</p>
+                        </div>
+                    </div>
+                    <div class="summary-card yellow">
+                        <div class="summary-icon"><i class="fas fa-clock"></i></div>
+                        <div class="summary-content">
+                            <h4>In Transit</h4>
+                            <p id="transit-count">1 bag still in transit</p>
+                        </div>
+                    </div>
+                    <div class="summary-card blue">
+                        <div class="summary-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="summary-content">
+                            <h4>Pickup Location</h4>
+                            <p>Carousel 3 - Terminal 1</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer__container">
+        <div class="footer__links">
+            <div class="footer__link--wrapper">
+                <div class="footer__link--items">
+                    <h2>Help</h2>
+                    <a href="/">Contact Us</a>
+                    <a href="travel-assistant.html">travel Assistant</a>
+                    <a href="/">Terms Of Service</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__logo">
+            <a href="/" id="navbar__logo">
+                <img src="img/fly.png" alt="EasyFly Logo" class="navbar__logo-image" />
+            </a>  
+        </div>
+        <p class="website__rights">FlyMate 2025. All rights reserved</p>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

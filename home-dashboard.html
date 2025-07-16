@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlyMate - Home</title>
+    <link rel="stylesheet" href="main-styles.css">
+    <script src="https://kit.fontawesome.com/d510b38842.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="/" id="navbar__logo">
+                <img src="img/fly.png" alt="EasyFly Logo" class="navbar__logo-image" />
+            </a>    
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="home-dashboard.html" class="navbar__links active">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="luggage-tracking.html" class="navbar__links">Luggage</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="flight-management.html" class="navbar__links">Flights</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="Notifications.html" class="navbar__links">Notifications</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="user-profile.html" class="navbar__links">Account</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="travel-settings.html" class="navbar__links">Settings</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" id="logout-btn" class="navbar__links">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+   <!-- Main Content Container -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <div class="main">
+            <div class="main__container">
+                <div class="main__content">
+                    <h1 id="hero-title">Your Journey</h1>
+                    <h2 id="hero-subtitle">Starts Here</h2>
+                    <p id="hero-description">Smart travel solutions at your fingertips</p>
+                </div>
+                <div class="main_img--container">
+                    <div class="hero-animation">
+                        <div class="floating-plane">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="travel-icons">
+                            <div class="icon-item" style="--delay: 0s">
+                                <i class="fas fa-suitcase"></i>
+                            </div>
+                            <div class="icon-item" style="--delay: 0.5s">
+                                <i class="fas fa-passport"></i>
+                            </div>
+                            <div class="icon-item" style="--delay: 1s">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Quick Actions Section -->
+        <div class="quick-actions-section">
+            <div class="quick-actions-container">
+                <h2>Quick Actions</h2>
+                <div class="actions-grid">
+                    <a href="Scanner.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <h3>My Flights</h3>
+                        <p>View and manage your flight bookings and boarding passes</p>
+                    </a>
+                    <a href="DashBoard.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-suitcase"></i>
+                        </div>
+                        <h3>Track Luggage</h3>
+                        <p>Monitor your baggage location and pickup status</p>
+                    </a>
+                    <a href="Notifications.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3>Notifications</h3>
+                        <p>Stay updated with real-time travel alerts and updates</p>
+                    </a>
+                    <a href="user-profile.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Manage Account</h3>
+                        <p>Update your travel profile and preferences</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer__container">
+        <div class="footer__links">
+            <div class="footer__link--wrapper">
+                <div class="footer__link--items">
+                    <h2>Support</h2>
+                    <a href="/">Contact Us</a>
+                    <a href="travel-assistant.html">Travel Assistant</a>
+                    <a href="/">Help Center</a>
+                </div>
+                <div class="footer__link--items">
+                    <h2>Company</h2>
+                    <a href="/">About Us</a>
+                    <a href="/">Privacy Policy</a>
+                    <a href="/">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__logo">
+            <a href="/" id="navbar__logo">
+                <img src="img/fly.png" alt="EasyFly Logo" class="navbar__logo-image" />
+            </a>  
+        </div>
+        <p class="website__rights">FlyMate 2025. All rights reserved</p>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

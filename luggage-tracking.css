@@ -1,0 +1,476 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: #333333;
+}
+
+/* Navigation Bar */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 999;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 30px rgba(0,0,0,0.15);
+}
+
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+#navbar__logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+#navbar__logo:hover {
+    transform: scale(1.05);
+}
+
+.navbar__logo-image {
+    width: 200px; 
+    height: auto; 
+    border-radius: 4px; 
+}
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+.navbar__item {
+    height: 80px;
+}
+
+.navbar__links {
+    color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar__links::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #0c1752 0%, #59b1e4 100%);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar__links:hover::after,
+.navbar__links.active::after {
+    width: 80%;
+}
+
+.navbar__links:hover {
+    color: #0c1752;
+    transition: all 0.3s ease;
+}
+
+.navbar__links.active {
+    color: #0c1752;
+    font-weight: 600;
+}
+
+.navbar__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 12px 24px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #0c1752 0%, #59b1e4 100%);
+    color: #fff;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(12, 23, 82, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.button:hover::before {
+    left: 100%;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(12, 23, 82, 0.4);
+}
+
+/* Main Content Container */
+.main-content {
+    margin-top: 80px;
+}
+
+/* Main Content Container */
+.main-content {
+    margin-top: 80px;
+}
+
+/* Dashboard Styles */
+.dashboard-container {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.dashboard-header h1 {
+    font-size: 2.5rem;
+    color: #333333;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #0c1752 0%, #59b1e4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dashboard-header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Filter Controls */
+/* Luggage Section */
+.luggage-section {
+    margin-bottom: 3rem;
+}
+
+.table-container {
+    background: white;
+    border-radius: 15px;
+    padding: 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* Luggage Table */
+.luggage-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.luggage-table thead {
+    background: linear-gradient(135deg, #0c1752 0%, #59b1e4 100%);
+    color: white;
+}
+
+.luggage-table th,
+.luggage-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.luggage-table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.luggage-table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+.luggage-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.status-arrived {
+    background: #e8f5e8;
+    color: #4CAF50;
+}
+
+.status-transit {
+    background: #fff8e1;
+    color: #FF9800;
+}
+
+.status-delayed {
+    background: #ffebee;
+    color: #f44336;
+}
+
+.status-collected {
+    background: #e3f2fd;
+    color: #2196F3;
+}
+
+/* Baggage Number Styling */
+.baggage-number {
+    font-family: monospace;
+    font-weight: 700;
+    color: #0c1752;
+    background: #f0f4ff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* Summary Section */
+.summary-section {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    margin-bottom: 3rem;
+}
+
+.summary-section h2 {
+    color: #333333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.summary-card {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    border-radius: 12px;
+    gap: 1rem;
+}
+
+.summary-card.green {
+    background: #e8f5e8;
+    border-left: 4px solid #4CAF50;
+}
+
+.summary-card.yellow {
+    background: #fff8e1;
+    border-left: 4px solid #FF9800;
+}
+
+.summary-card.blue {
+    background: #e3f2fd;
+    border-left: 4px solid #2196F3;
+}
+
+.summary-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.8);
+    color: inherit;
+}
+
+.summary-content h4 {
+    color: #333333;
+    margin-bottom: 0.25rem;
+}
+
+.summary-content p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Footer */
+.footer__container {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 4rem 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
+}
+
+.footer__links {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.footer__links--wrapper {
+    display: flex;
+    gap: 4rem;
+}
+
+.footer__link--items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    min-width: 160px;
+}
+
+.footer__link--items h2 {
+    margin-bottom: 1rem;
+    color: #333333;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.footer__link--items a {
+    color: #666;
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer__link--items a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #0c1752 0%, #59b1e4 100%);
+    transition: width 0.3s ease;
+}
+
+.footer__link--items a:hover::before {
+    width: 100%;
+}
+
+.footer__link--items a:hover {
+    color: #0c1752;
+}
+
+.footer__logo {
+    margin-bottom: 1rem;
+}
+
+.website__rights {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar__container {
+        padding: 0 20px;
+    }
+    
+    .dashboard-container {
+        padding: 1rem;
+    }
+    
+    .dashboard-header h1 {
+        font-size: 2rem;
+    }
+    
+    .table-container {
+        overflow-x: auto;
+    }
+    
+    .luggage-table {
+        min-width: 600px;
+    }
+    
+    .luggage-table th,
+    .luggage-table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar__logo-image {
+        width: 150px;
+    }
+    
+    .dashboard-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .luggage-table th,
+    .luggage-table td {
+        padding: 0.5rem 0.25rem;
+        font-size: 0.75rem;
+    }
+}

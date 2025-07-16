@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronic Boarding Pass - FlyMate</title>
+    <link rel="stylesheet" href="boardinf-pass.css">
+    <script src="https://kit.fontawesome.com/d510b38842.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="ticket-container">
+        <div class="boarding-pass" id="boarding-pass">
+            <!-- Ticket Header -->
+            <div class="ticket-header">
+                <div class="airline-info">
+                    <h1 id="airline-name">Saudia</h1>
+                    <p>Electronic Boarding Pass</p>
+                </div>
+                <div class="easyfly-logo">
+                    <img src="img/fly.png" alt="EasyFly Logo" />
+                </div>
+            </div>
+
+            <!-- Main Ticket Content -->
+            <div class="ticket-main">
+                <div class="ticket-left">
+                    <!-- Passenger Info -->
+                    <div class="passenger-section">
+                        <div class="section-title">PASSENGER</div>
+                        <div class="passenger-name">JOHN DOE</div>
+                    </div>
+
+                    <!-- Flight Route -->
+                    <div class="route-section">
+                        <div class="route-info">
+                            <div class="departure">
+                                <div class="section-title">FROM</div>
+                                <div class="airport-code" id="departure-code">RUH</div>
+                                <div class="airport-name" id="departure-name">King Khalid International</div>
+                                <div class="flight-time" id="departure-time">14:30</div>
+                            </div>
+                            <div class="flight-path">
+                                <i class="fas fa-plane"></i>
+                                <div class="flight-line"></div>
+                            </div>
+                            <div class="arrival">
+                                <div class="section-title">TO</div>
+                                <div class="airport-code" id="arrival-code">JED</div>
+                                <div class="airport-name" id="arrival-name">King Abdulaziz International</div>
+                                <div class="flight-time" id="arrival-time">16:45</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flight Details -->
+                    <div class="details-grid">
+                        <div class="detail-box">
+                            <div class="section-title">FLIGHT</div>
+                            <div class="detail-value" id="flight-number">SV 1234</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="section-title">DATE</div>
+                            <div class="detail-value" id="flight-date">15 JAN 2025</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="section-title">GATE</div>
+                            <div class="detail-value" id="gate-number">A12</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="section-title">SEAT</div>
+                            <div class="detail-value" id="seat-number">12A</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="section-title">BOARDING</div>
+                            <div class="detail-value" id="boarding-time">14:00</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="section-title">CLASS</div>
+                            <div class="detail-value">ECONOMY</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ticket Right Side (Stub) -->
+                <div class="ticket-divider">
+                    <div class="perforation"></div>
+                </div>
+                
+                <div class="ticket-right">
+                    <div class="stub-content">
+                        <div class="stub-header">
+                            <div class="section-title">BOARDING PASS</div>
+                        </div>
+                        
+                        <div class="stub-route">
+                            <div class="stub-airport">
+                                <div class="airport-code" id="stub-departure">RUH</div>
+                            </div>
+                            <i class="fas fa-arrow-right"></i>
+                            <div class="stub-airport">
+                                <div class="airport-code" id="stub-arrival">JED</div>
+                            </div>
+                        </div>
+
+                        <div class="stub-details">
+                            <div class="stub-item">
+                                <div class="section-title">FLIGHT</div>
+                                <div class="stub-value" id="stub-flight">SV 1234</div>
+                            </div>
+                            <div class="stub-item">
+                                <div class="section-title">SEAT</div>
+                                <div class="stub-value" id="stub-seat">12A</div>
+                            </div>
+                            <div class="stub-item">
+                                <div class="section-title">GATE</div>
+                                <div class="stub-value" id="stub-gate">A12</div>
+                            </div>
+                        </div>
+
+                        <!-- Barcode -->
+                        <div class="barcode-section">
+                            <div class="barcode" id="barcode">
+                                <div class="barcode-lines">
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                    <div class="line thick"></div>
+                                    <div class="line"></div>
+                                    <div class="line thick"></div>
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                    <div class="line thick"></div>
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                    <div class="line thick"></div>
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                    <div class="line thick"></div>
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                    <div class="line thick"></div>
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                    <div class="line thick"></div>
+                                </div>
+                            </div>
+                            <div class="barcode-number">1234567890123</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status Banner -->
+            <div class="status-banner" id="status-banner">
+                <i class="fas fa-check-circle"></i>
+                <span>BOARDING PASS CONFIRMED</span>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="ticket-actions">
+            <button class="action-btn download-btn" onclick="downloadTicket()">
+                <i class="fas fa-download"></i>
+                Download PDF
+            </button>
+            <button class="action-btn share-btn" onclick="shareTicket()">
+                <i class="fas fa-share"></i>
+                Share
+            </button>
+            <button class="action-btn close-btn" onclick="window.close()">
+                <i class="fas fa-times"></i>
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script src="FlightTicket.js"></script>
+</body>
+</html>
